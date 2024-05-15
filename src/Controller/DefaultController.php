@@ -2,20 +2,31 @@
 
 namespace App\Controller;
 
+use App\Repository\ProductRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
 class DefaultController extends AbstractController
 {
-    #[Route('/default/{id}/{page}', name: 'app_default', requirements: ['id' => '\d+'], defaults: ['id' => 1], methods: ['GET'])]
-    public function index(Request $request, int $id, int $page): Response
+    #[Route('/', name: 'app_default')]
+    public function index(ProductRepository $productRepository, EntityManagerInterface $em): Response
     {
-	    dump($request->query->get('name'));
-        return $this->render('default/index.html.twig', [
-            'controller_name' => 'DefaultController',
-	        'id' => $id,
-        ]);
+		$product = $productRepository->findOneBy(['id' => 1]);
+		$product->setName('Product 100');
+		$em->flush();
+		dump($product);
+		exit;
+
+	   /* $product = (new Product())
+		    -> setName('Product2')
+		    -> setDescription('Description')
+		    -> setPrice(30000);*/
+		$em->persist($product);
+		$em->flush();
+		exit;
+
+        return $this->render('default/index.html.twig', []);
     }
 }
