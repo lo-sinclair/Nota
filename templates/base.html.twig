@@ -12,6 +12,11 @@
         {% endblock %}
     </head>
     <body>
+        <div><a href="{{ path('_logout_main') }}">Logout</a></div>
+        <div><a href="{{ url('app_user_index') }}">UserList</a></div>
+        {% if app.user %}
+        {{ app.user.email }}
+        {% endif %}
         {% block body %}{% endblock %}
     </body>
 </html>
