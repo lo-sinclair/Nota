@@ -26,7 +26,12 @@ class Product
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $image = null;
 
-    public function getId(): ?int
+	#[ORM\ManyToOne(targetEntity: Category::class, inversedBy: 'products')]
+	#[ORM\JoinColumn(name: 'category_id', referencedColumnName: 'id')]
+	private Category|null $category = null;
+
+
+	public function getId(): ?int
     {
         return $this->id;
     }
@@ -78,4 +83,16 @@ class Product
 
         return $this;
     }
+
+	public function getCategory(): ?Category
+	{
+		return $this->category;
+	}
+
+	public function setCategory(?Category $category): static
+	{
+		$this->category = $category;
+
+		return $this;
+	}
 }
