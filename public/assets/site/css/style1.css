@@ -1,0 +1,552 @@
+@font-face {
+  font-family: "Unbounded";
+  src: url("../fonts/Unbounded-VariableFont_wght.ttf");
+}
+
+@font-face {
+  font-family: "NeueMachina";
+  src: url("../fonts/NeueMachina-Medium.ttf");
+}
+
+@font-face {
+  font-family: "NeueMachina-Regular";
+  src: url("../fonts/NeueMachina-Regular.ttf");
+}
+
+@font-face {
+  font-family: "NeueMachina-Light";
+  src: url("../fonts/NeueMachina-Light.ttf");
+}
+
+body {
+  font-family: "Unbounded";
+  background-color: #101014;
+  width: 100%;
+  height: 100%;
+  background-image: url(../img/Ellipse1.png), url(../img/Ellipse2.png);
+  background-repeat: no-repeat, no-repeat;
+  background-position: top left, center right;
+  padding-top: 30px;
+}
+
+.menu {
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-content: flex-start;
+}
+
+.menu > div {
+  position: relative;
+  display: flex;
+  height: 50px;
+  align-content: flex-start;
+  align-items: center;
+}
+
+.menu2 {
+  position: relative;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-left: 225px;
+}
+
+.menu2 > div {
+  position: relative;
+  display: inline-flex;
+  height: 50px;
+  align-items: center;
+}
+
+.menu3 {
+  position: relative;
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.menu3 > div {
+  position: relative;
+  display: flex;
+  width: 25%;
+  height: 50px;
+  align-items: center;
+}
+
+.person {
+  background-color: transparent;
+  display: flex;
+  border: none;
+}
+
+a {
+  text-decoration: none;
+  font-family: "NeueMachina";
+  color: #d7d3db;
+  padding: 10px;
+}
+
+.custom-banner {
+  position: relative;
+}
+
+.custom-banner img {
+  position: flex;
+  width: 100%;
+  height: 570px;
+  border-radius: 30px;
+  margin-top: 40px;
+}
+
+h1 {
+  font-size: 50px;
+  position: absolute;
+  top: 30%;
+  left: 100px;
+  width: 350px;
+  padding: 10px;
+  color: white;
+  text-align: left;
+  line-height: 110%;
+  font-weight: 500;
+  word-wrap: break-word;
+}
+
+.text2 {
+  position: absolute;
+  font-family: "NeueMachina";
+  top: 50%;
+  left: 100px;
+  width: 400px;
+  padding: 10px;
+  color: white;
+  text-align: left;
+  line-height: 100%;
+  font-size: 30px;
+  font-weight: 200;
+  word-wrap: break-word;
+}
+
+.more {
+  position: absolute;
+  top: 70%;
+  color: white;
+  text-align: left;
+  background-color: #712fff;
+  border: 3px solid #712fff;
+  color: white;
+  border-radius: 8px;
+  font-size: 16px;
+  padding: 18px 34px;
+  left: 110px;
+}
+
+.more:hover {
+  border: 3px solid #ffffff;
+  border-style: dashed;
+  background-color: transparent;
+  color: #fff;
+}
+
+h2 {
+  color: white;
+  font-size: 30px;
+  font-family: "Unbounded";
+  font-weight: 500;
+  margin-top: 80px;
+  margin-bottom: 38px;
+}
+
+.custom-card {
+  font-family: "NeueMachina";
+  background: #181525;
+  border-radius: 12px;
+  margin-bottom: 80px;
+}
+
+h6 {
+  color: white;
+  line-height: 20px;
+  word-wrap: break-word;
+}
+
+h4 {
+  color: white;
+  line-height: 50px;
+}
+
+.card-img {
+  margin-bottom: 14px;
+}
+
+.card_add {
+  display: block;
+  width: 100%;
+  font-weight: 400;
+  font-size: 16px;
+  color: #000000;
+  padding: 10px;
+  text-align: center;
+  border-radius: 8px;
+  border: 3px solid #ffffff;
+  cursor: pointer;
+  transition: 0.2s;
+  margin-top: auto; /* Прижимаем кнопку к низу карточки */
+}
+
+.card_add:hover {
+  border: 3px solid #ffffff;
+  border-style: dashed;
+  background-color: transparent;
+  color: #fff;
+}
+
+.custom-cat {
+  position: relative;
+  font-family: "NeueMachina";
+  background: #181525;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.nav-link {
+  position: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.custom-cat:hover {
+  background: #712fff;
+}
+
+.cat-img {
+  margin-bottom: 14px;
+  width: 100%;
+}
+
+/* Кнопка навверх */
+.btn-up {
+  position: fixed;
+  background-color: #712fff;
+  right: 20px;
+  bottom: 0;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 50px;
+}
+
+.btn-up::before {
+  content: "";
+  width: 40px;
+  height: 40px;
+  background: transparent no-repeat center center;
+  background-size: 100% 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23fff' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z'/%3E%3C/svg%3E");
+}
+
+.btn-up_hide {
+  display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn-up:hover {
+    background-color: #512da8;
+  }
+}
+
+p {
+  font-family: "NeueMachina-Light";
+  color: #fff;
+  word-wrap: break-word;
+}
+
+.form-group {
+  padding-bottom: 20px;
+}
+
+.btn-default {
+  background-color: #712fff;
+  color: white;
+  border: 3px solid #712fff;
+  border-radius: 8px;
+  font-size: 16px;
+  padding: 18px 34px;
+}
+
+.btn-default:hover {
+  border: 3px solid #ffffff;
+  border-style: dashed;
+  background-color: transparent;
+  color: #fff;
+}
+
+.form-control {
+  font-family: "NeueMachina-Light";
+  background-color: #181525;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 12px;
+  border: none;
+  height: 60px;
+  padding-left: 14px;
+}
+
+.form-control::placeholder {
+  color: #7766bd;
+  border: none;
+}
+
+.form-control:focus {
+  background-color: #181525;
+  border: none;
+  color: #fff;
+}
+
+textarea {
+  font-family: "NeueMachina-Light";
+  background-color: #181525;
+  width: 100%;
+  font-size: 16px;
+  border-radius: 12px;
+  border: none;
+  height: 180px;
+  min-height: 180px;
+  resize: none;
+  box-sizing: border-box;
+  padding-left: 14px;
+}
+
+textarea:focus {
+  border: none;
+  outline: none;
+  color: #fff;
+}
+
+textarea::placeholder {
+  color: #7766bd;
+}
+
+.custom-search img {
+  padding-right: 14px;
+}
+
+iframe {
+  width: 100%;
+  height: 280px;
+  border-radius: 12px;
+}
+.contact-text {
+  margin-bottom: 38px;
+}
+
+.cart {
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+}
+
+.cart__num {
+  position: relative;
+  background-color: transparent;
+  display: flex;
+  font-weight: 300;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  top: -10px;
+  right: -10px;
+}
+
+.custom-accord {
+  background-color: #181525;
+  border: none;
+  font-family: "NeueMachina-Light";
+  color: #fff;
+}
+
+.text-banner2 {
+  font-size: 50px;
+  position: absolute;
+  top: 40%;
+  left: 100px;
+  width: 600px;
+  padding: 10px;
+  color: white;
+  text-align: left;
+  line-height: 110%;
+  font-weight: 500;
+  word-wrap: break-word;
+}
+
+.text-banner3 {
+  font-size: 50px;
+  position: absolute;
+  top: 35%;
+  left: 100px;
+  width: 900px;
+  padding: 10px;
+  color: white;
+  text-align: left;
+  line-height: 110%;
+  font-weight: 500;
+  word-wrap: break-word;
+}
+
+.text-banner4 {
+  font-size: 50px;
+  position: absolute;
+  top: 40%;
+  left: 100px;
+  width: 600px;
+  padding: 10px;
+  color: white;
+  text-align: left;
+  line-height: 110%;
+  font-weight: 500;
+  word-wrap: break-word;
+}
+
+.text-banner5 {
+  font-size: 50px;
+  position: absolute;
+  top: 40%;
+  left: 100px;
+  width: 450px;
+  padding: 10px;
+  color: white;
+  text-align: left;
+  line-height: 110%;
+  font-weight: 500;
+  word-wrap: break-word;
+}
+
+.reg {
+  width: 560px;
+  margin: 0 auto;
+  margin-top: 130px;
+}
+
+.text-reg {
+  text-align: center;
+  color: white;
+}
+
+.btn-reg {
+  color: white;
+  text-align: center;
+  background-color: #712fff;
+  color: white;
+  border: 3px solid #712fff;
+  border-radius: 8px;
+  padding: 18px 34px;
+  margin-top: 18px;
+}
+
+.btn-reg:hover {
+  border: 3px solid #ffffff;
+  border-style: dashed;
+  background-color: transparent;
+  color: #fff;
+}
+
+.url-link {
+  color: #712fff;
+  text-decoration: underline;
+}
+
+.reg-link {
+  text-align: center;
+  margin-top: 38px;
+}
+
+.custom-window {
+  background-color: #712fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Распределяем элементы внутри равномерно */
+  width: 100%;
+  max-width: 800px;
+  min-height: 300px;
+  border-radius: 18px;
+  position: relative;
+  margin-bottom: 38px;
+}
+
+.custom-title {
+  color: #fff;
+  padding: 18px 34px;
+}
+
+.custom-make-order {
+  color: #712fff;
+  text-align: center;
+  background-color: #fff;
+  border: 3px solid #712fff;
+  border-radius: 8px;
+  padding: 18px 34px;
+  margin-top: 18px;
+}
+
+.custom-make-order:hover {
+  border: 3px solid #ffffff;
+  border-style: dashed;
+  background-color: transparent;
+  color: #fff;
+}
+
+.custom-footer {
+ margin-bottom: 38px;
+}
+
+
+
+.custom-body-card {
+  flex-direction: row;
+  max-width: 840px;
+  border: none;
+  background-color: transparent;
+  color: #fff;
+}
+
+.card img {
+  max-width: 35%;
+  margin: auto;
+  border-radius: 18px;
+}
+
+.card-text {
+  font-family: "NeueMachina";
+}
+
+.card-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.text-section {
+  max-width: 50%;
+}
+.cta-section {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.product-delete {
+  font-size: 12px;
+  padding: 5px;
+  color: #ffffff;
+  background-color: transparent;
+  border: none;
+}
+

@@ -1,0 +1,61 @@
+.custom-img {
+   height: 130px;
+   width: 130px;
+}
+
+.text-style {
+   color:#712fff;
+}
+ 
+ .card-order {
+   font-family: "NeueMachina";
+   width: 100%; 
+   height: auto; 
+   padding: 16px; 
+   background: #171624;
+   border-radius: 12px; 
+   justify-content: flex-start; 
+   align-items: flex-start; 
+   gap: 16px; 
+   display: inline-flex;
+ }
+
+ .img-order {
+   width: 130px; 
+   border-radius: 12px; 
+   overflow: hidden;  
+   flex-direction: column; 
+   justify-content: flex-start; 
+   align-items: flex-start; 
+   display: inline-flex;
+ }
+
+ .frame {
+   flex: 1 1 0; 
+   flex-direction: column; 
+   justify-content: flex-start; 
+   align-items: flex-start; 
+   gap: 12px; 
+   display: inline-flex;
+ }
+
+ .title {
+   align-self: stretch; 
+   color: white;  
+   font-size: 20px;
+ }
+
+ .text {
+   width: 100%;
+   align-self: stretch; 
+   color: white; 
+   font-size: 16px; 
+   font-weight: 400; 
+   word-wrap: break-word;
+ }
+
+ .popup {
+   color: #712fff;
+   text-decoration: underline;
+   font-size: 20px;
+ }
