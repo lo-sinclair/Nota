@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends '../../base.html.twig' %}
 
 {% block title %}Product{% endblock %}
 
@@ -25,7 +25,7 @@
             </tr>
             <tr>
                 <th>Image</th>
-                <td>{{ product.image }}</td>
+                <td><img alt="" class="imgwork" src="{{ asset('uploads/product/' ~ product.image) }}" />
             </tr>
             <tr>
                 <th>Category</th>

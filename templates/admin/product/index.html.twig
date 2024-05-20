@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends ':Admin:base.html.twig' %}
 
 {% block title %}Product index{% endblock %}
 
@@ -23,7 +23,7 @@
                 <td>{{ product.name }}</td>
                 <td>{{ product.description }}</td>
                 <td>{{ product.price }}</td>
-                <td>{{ product.image }}</td>
+                <td>{{ asset('uploads/product/' ~ product.image) }}</td>
                 <td>
                     <a href="{{ path('app_product_show', {'id': product.id}) }}">show</a>
                     <a href="{{ path('app_product_edit', {'id': product.id}) }}">edit</a>
