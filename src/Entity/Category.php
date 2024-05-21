@@ -6,7 +6,7 @@ use App\Repository\CategoryRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: CategoryRepository::class)]
-class Category
+class Category implements IHavingImage
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -47,4 +47,8 @@ class Category
 
         return $this;
     }
+
+	function getUploadDir(): string {
+		return "categories";
+	}
 }

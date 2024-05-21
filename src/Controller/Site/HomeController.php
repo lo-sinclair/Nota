@@ -1,17 +1,18 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Site;
 
+use App\Repository\ProductRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-class DefaultController extends AbstractController
+class HomeController extends AbstractController
 {
-    #[Route('/', name: 'app_default')]
-    public function index(): Response
+    #[Route('/', name: 'app_home')]
+    public function index(ProductRepository $product_repository): Response
     {
 		//return $this->redirectToRoute('app_product_index');
-	    return new Response();
+	    return $this->render( 'site/home.html.twig', ['products_new' => $product_repository->findNewest()] );
     }
 }

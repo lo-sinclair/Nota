@@ -16,6 +16,20 @@ class ProductRepository extends ServiceEntityRepository
         parent::__construct($registry, Product::class);
     }
 
+
+	/**
+	 * @return array<Product>
+	 */
+	public function findNewest(): array {
+		return $this
+			->createQueryBuilder('p')
+			->setMaxResults(4)
+			->orderBy('p.id', 'DESC')
+			->getQuery()
+			->getResult();
+	}
+
+
     //    /**
     //     * @return Product[] Returns an array of Product objects
     //     */

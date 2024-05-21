@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+        {% block stylesheets %}
+            <link href="{{ asset('assets/dist/bootstrap/bootstrap.min.css') }}" rel="stylesheet" />
+            <link href="{{ asset('assets/admin/css/style.css') }}" rel="stylesheet" />
+        {% endblock %}
+        {% block javascripts %}
+            {% block importmap %}{{ importmap('app') }}{% endblock %}
+        {% endblock %}
+    </head>
+    <body>
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand px-2" title="На сайт" target="_blank" href="{{ url('app_home') }}">(^◕ᴥ◕^)</a>
+
+                <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ url('app_product_index') }}">Товары</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('app_category_index') }}">Категории</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="">Заказы</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="">Акции</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('app_user_index') }}">Пользователи</a>
+                        </li>
+
+                        {#<li class="nav-item">
+                            <a class="nav-link disabled" href="#">Disabled</a>
+                        </li>#}
+                    </ul>
+                    <div class="navbar-text mr-3"><a href="{{ path('_logout_main') }}">Logout</a></div>
+                </div>
+            </nav>
+        </div>
+
+        <main role="main">
+            <!-- Main jumbotron for a primary marketing message or call to action -->
+            {% block header_block %}{% endblock %}
+
+            <div class="container mt-2">
+                {% block body %}{% endblock %}
+            </div> <!-- /container -->
+        </main>
+
+        <footer class="container text-center fixed-bottom">
+            <p>&copy; Nota Shop 2024</p>
+        </footer>
+
+
+        {#{% if app.user %}
+        {{ app.user.email }}
+        {% endif %}#}
+
+    </body>
+</html>

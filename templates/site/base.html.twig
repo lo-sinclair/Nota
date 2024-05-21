@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Магазин музыкальных иснтрументов</title>
+    <link rel="shortcut icon" href="{{ asset('assets/site/img/favicon.ico') }}" type="image/x-icon" />
+    {% block stylesheets %}
+        {#<link href="{{ asset('assets/dist/bootstrap/bootstrap.min.css') }}" rel="stylesheet" />#}
+        <link href="{{ asset('assets/site/css/bootstrap.min.css') }}" rel="stylesheet" />
+        <link rel="stylesheet" href="{{ asset('assets/site/css/style1.css') }}" />
+    {% endblock %}
+
+</head>
+<body>
+<!--Меню -->
+<div class="container">
+    <nav>
+        <div class="menu">
+            <div><a href="./main.html" class="nav-link"><img src="{{ asset('assets/site/img/logo.svg')}}" /></a></div>
+            <div class="menu2">
+                <div><a href="#part1">Каталог</a></div>
+                <div><a href="#part2">Доставка и оплата</a></div>
+                <div><a href="#part3">Контакты</a></div>
+                <div><a href="#part4">FAQ</a></div>
+            </div>
+            <div class="menu3">
+                <div>
+                        <a href="{% if app.user %}#{% else %}{{ url('app_login') }}{% endif %}" class="person">
+                            <img src="{{ asset('assets/site/img/person-fill.svg')}}"/>
+                        </a>
+                </div>
+                <!-- Кнопка модального окна корзины-->
+                <div>
+                    <button class="cart" id="cart" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <img src="{{ asset('assets/site/img/cart2.svg') }}" />
+                        <div class="cart__num" id="cart_num">0</div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Модальное окно корзины-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content custom-window">
+                <div class="modal-header border-0">
+                    <h3 class="modal-title custom-title" id="exampleModalLabel">Корзина</h3>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="card custom-body-card">
+                        <img src="{{ asset('assets/site/img/guitar2.png') }}" class="card-img-top">
+                        <div class="card-body">
+                            <div class="text-section">
+                                <p class="card-text">Гитара Альварес-001C</p>
+                            </div>
+                            <div class="cta-section">
+                                <div>10 000 руб.
+                                    <button class="product-delete">✖</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer custom-footer">
+                    <button type="button" id="make-order" class="btn custom-make-order">Оформить заказ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% block body %}{% endblock %}
+
+</div>
+<footer></footer>
+{% block javascripts %}
+    <script src="{{ asset('assets/dist/bootstrap/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/site/js/main.js') }}"></script>
+{% endblock %}
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+{#<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+        {% block stylesheets %}
+        {% endblock %}
+
+        {% block javascripts %}
+            {% block importmap %}{{ importmap('app') }}{% endblock %}
+        {% endblock %}
+    </head>
+    <body>
+        <div><a href="{{ path('_logout_main') }}">Logout</a></div>
+        <div><a href="{{ url('app_user_index') }}">UserList</a></div>
+        {% if app.user %}
+        {{ app.user.email }}
+        {% endif %}
+        {% block body %}{% endblock %}
+    </body>
+</html>#}
+
+
