@@ -26,7 +26,7 @@
             </div>
             <div class="menu3">
                 <div>
-                        <a href="{% if app.user %}#{% else %}{{ url('app_login') }}{% endif %}" class="person">
+                        <a href="{% if app.user %}{{ url('app_profile_show') }}{% else %}{{ url('app_login') }}{% endif %}" class="person">
                             <img src="{{ asset('assets/site/img/person-fill.svg')}}"/>
                         </a>
                 </div>

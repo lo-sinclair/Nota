@@ -1,0 +1,64 @@
+{% extends 'site/base.html.twig' %}
+
+{% block title %}Nota - Профиль{% endblock %}
+
+{% block body %}
+<div class="container rounded mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                <img class="rounded-circle mt-5 custom-img" src="{{ asset('assets/site/img/Frame.png')}}">
+                <h4>{{ user.name }}</h4>
+                <h6 class="text-white-50">{{ user.email }}</h6>
+            </div>
+        </div>
+        <div class="col-md-5 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right">Доставки</h4>
+                </div>
+                <div class="row mt-3">
+                    <div class="title">Заказ №0000001</div>
+                    <!--ТУТ НАДО СДЕЛАТЬ ПОПАП С ПРОЦЕССОМ ДОСТАВКИ -->
+                    <div class="text">Статус заказа:<span class="text-style">ожидает получения</span></div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col">
+                        <div class="card-order">
+                            <div><img class="img-order" src="{{ asset('assets/site/img/guitar2.png')}}">
+                            </div>
+                            <div class="frame">
+                                <div class="text">Оформлен:  <span class="text-style">12.05.2024</span></div>
+                                <div class="text">Сумма: <span class="text-style">12 000 руб.</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right">История заказов</h4>
+                </div>
+                <div class="row mt-3">
+                    <div class="col">
+                        <div class="card-order">
+                            <div><img class="img-order" src="{{ asset('assets/site/img/guitar3.png') }}">
+                            </div>
+                            <div class="frame">
+                                <div class="title">Гитара</div>
+                                <div class="text">Получено:  <span class="text-style">1.05.2024</span></div>
+                                <div class="text">Сумма: <span class="text-style">30 000 руб.</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
