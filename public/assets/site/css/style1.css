@@ -158,7 +158,7 @@ h2 {
   margin-bottom: 38px;
 }
 
-.custom-card {
+.custom_card {
   font-family: "NeueMachina";
   background: #181525;
   border-radius: 12px;
@@ -178,6 +178,7 @@ h4 {
 
 .card-img {
   margin-bottom: 14px;
+  border-radius: 12px;
 }
 
 .card_add {
@@ -345,7 +346,7 @@ iframe {
   margin-bottom: 38px;
 }
 
-.cart {
+.cart-header {
   background-color: transparent;
   display: flex;
   justify-content: center;
@@ -503,7 +504,7 @@ iframe {
 }
 
 .custom-footer {
- margin-bottom: 38px;
+  margin-bottom: 38px;
 }
 
 
@@ -514,6 +515,10 @@ iframe {
   border: none;
   background-color: transparent;
   color: #fff;
+}
+
+.custom-body-card:not(:last-of-type) {
+  margin-bottom: 16px;
 }
 
 .card img {
@@ -550,3 +555,12 @@ iframe {
   border: none;
 }
 
+#product_list {
+  display: flex;
+  flex-direction: column;
+}
+
+.empty-cart-note {
+  font-family: "NeueMachina", sans-serif;
+  font-size: 18px;
+}

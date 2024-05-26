@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\Category;
 use App\Entity\Product;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -25,6 +26,16 @@ class ProductRepository extends ServiceEntityRepository
 			->createQueryBuilder('p')
 			->setMaxResults(4)
 			->orderBy('p.id', 'DESC')
+			->getQuery()
+			->getResult();
+	}
+
+	public function findByCategory(Category $category): array {
+		return $this
+			->createQueryBuilder('p')
+			->join('p.category', 'c')
+			->where('c = :category')
+			->setParameter('category', $category)
 			->getQuery()
 			->getResult();
 	}

@@ -16,6 +16,16 @@ class CategoryRepository extends ServiceEntityRepository
         parent::__construct($registry, Category::class);
     }
 
+	public function findTop() :array{
+		return $this->findAll();
+		/*return $this
+			->createQueryBuilder('c')
+			->setMaxResults(4)
+			->orderBy('c.id', 'DESC')
+			->getQuery()
+			->getResult();*/
+	}
+
     //    /**
     //     * @return Category[] Returns an array of Category objects
     //     */
@@ -40,4 +50,6 @@ class CategoryRepository extends ServiceEntityRepository
     //            ->getOneOrNullResult()
     //        ;
     //    }
+
+
 }

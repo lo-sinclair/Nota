@@ -1,0 +1,35 @@
+{% extends 'site/base.html.twig' %}
+
+{% block body %}
+
+    <!--Баннер -->
+    <div class="row">
+        <div class="col custom-banner">
+            <img src="{{ asset('uploads/categories/' ~ category.image) }}" />
+            <div><h1 class="text-banner2">{{ category.title }}</h1></div>
+        </div>
+    </div>
+    <!--Ассортимент-->
+    <div><h2>{{ category.name }}</h2></div>
+
+    <div class="row gx-3">
+    {% for i,product in products %}
+
+        <div class="col">
+            <div class="p-3 custom_card product" data-pid="{{ product.id }}">
+                <img class="card-img" src="{{ asset('uploads/products/' ~ product.image) }}" />
+                <h6 class="card_title">{{ product.name }}</h6>
+                <h4 class="card_price">{{ (product.price/100) | number_format(2, '.', ' ') }} руб.</h4>
+                <button class="card_add">В корзину</button>
+            </div>
+        </div>
+        {% if((i+1) % 4 == 0) %}
+            </div><div class="row gx-3">
+        {% endif %}
+    {% endfor %}
+    </div>
+
+
+
+
+{% endblock %}

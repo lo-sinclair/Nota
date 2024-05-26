@@ -1,0 +1,117 @@
+{% extends 'site/base.html.twig' %}
+
+{% block title %}Nota!{% endblock %}
+
+{% block body %}
+    <!--Баннер -->
+    <div class="row">
+        <div class="col custom-banner">
+            <img src="{{ asset('assets/site/img/guitar.png') }}" />
+            <div><h1>Весенние скидки</h1></div>
+            <div class="text2">Скидка 50% на электрогитары до 25.05</div>
+            <div><button class="btn more"><a href="./guitar.html" class="nav-link">Подробнее</button></a></div>
+        </div>
+    </div>
+    <!--Ассортимент новинок -->
+    <div><h2>Новинки</h2></div>
+    <div class="row gx-3">
+        {% for product in products_new %}
+            <div class="col">
+                <div class="p-3 custom_card product" data-pid="{{ product.id }}">
+                    <img class="card-img" src="{{ asset('uploads/products/' ~ product.image) }}" />
+                    <h6 class="card_title">{{ product.name }}</h6>
+                    <h4 class="card_price">{{ (product.price/100) | number_format(2, '.', ' ') }} руб.</h4>
+                    <button class="card_add">В корзину</button>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <!--Ассортимент акций -->
+    <div><h2>Акции</h2></div>
+    <div class="row gx-3">
+        <div class="col">
+            <div class="p-3 custom-card">
+                <img class="card-img" src="{{ asset('assets/site/img/tovar1.png') }}" />
+                <h6>Название длинной в две строки в две строки</h6>
+                <h4>500 руб.</h4>
+                <button class="card_add">В корзину</button>
+            </div>
+        </div>
+        <div class="col">
+            <div class="p-3 custom-card">
+                <img class="card-img" src="{{ asset('assets/site/img/tovar1.png') }}" />
+                <h6>Название длинной в две строки в две строки</h6>
+                <h4>500 руб.</h4>
+                <button class="card_add">В корзину</button>
+            </div>
+        </div>
+        <div class="col">
+            <div class="p-3 custom-card">
+                <img class="card-img" src="{{ asset('assets/site/img/tovar1.png') }}" />
+                <h6>ННазвание длинной в две строки в две строки</h6>
+                <h4>500 руб.</h4>
+                <button class="card_add">В корзину</button>
+            </div>
+        </div>
+        <div class="col">
+            <div class="p-3 custom-card">
+                <img class="card-img" src="{{ asset('assets/site/img/tovar1.png') }}" />
+                <h6>Название длинной в две строки в две строки</h6>
+                <h4>500 руб.</h4>
+                <button class="card_add">В корзину</button>
+            </div>
+        </div>
+    </div>
+
+    <!--Каталог -->
+    <article id="part1">
+        <div><h2>Каталог</h2></div>
+            <div class="row gx-3">
+            {% for category in categories %}
+                <div class="col">
+                    <div class="p-3 custom-cat">
+                        <a href="{{ path('app_category', {'id': category.id}) }}" class="nav-link">
+                            {% if category.image %}
+                                <div class="cat-img"><img src="{{ asset('uploads/categories/' ~ category.image) }}" /></div>
+                            {% endif %}
+                            <h6>{{ category.name }}</h6>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </article>
+    <article id="part2">
+        <!--Доставка и оплата -->
+        <div class="row gx-6">
+            <div class="col">
+                <div class="p-3 custom-delpay">
+                    <h2>Доставка</h2>
+                    <p>
+                        При заказе товара в нашем интернет-магазине вы можете выбрать
+                        различные способы доставки. Самовывоз из Магазина музыкальных
+                        инструментов «Нота» бесплатный. Оплаченный товар можно
+                        самостоятельно забрать в Магазине музыкальных инструментов
+                        «Нота» по адресу: г. Солнечногорск, ул. Железнодорожный проезд,
+                        д.7 по договоренности с менеджером.
+                    </p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="p-3 custom-delpay">
+                    <h2>Оплата</h2>
+                    <p>
+                        В магазине Нота вы можете оплатить товар удобным для вас
+                        способом:
+                    </p>
+                    <p>
+                        1. Любой картой российского банка на сайте Нота.<br />
+                        2. Счетом для юридических лиц.<br />
+                        3. При получении товара наличными менеджеру.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </article>
+
+{% endblock %}
