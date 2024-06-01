@@ -2,6 +2,8 @@
 
 namespace App\Controller\Site;
 
+use App\Entity\Status;
+use App\Entity\Status as StatusAlias;
 use App\Repository\CategoryRepository;
 use App\Repository\ProductRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -14,6 +16,8 @@ class HomeController extends AbstractController
     public function index(ProductRepository $productRepository, CategoryRepository $categoryRepository): Response
     {
 		//return $this->redirectToRoute('app_product_index');
+
+	    $status = Status::CART;
 	    return $this->render( 'site/home/home.html.twig', [
 			'products_new' => $productRepository->findNewest(),
 		    'categories' => $categoryRepository->findTop(),

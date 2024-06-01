@@ -28,4 +28,14 @@ services:
         arguments:
             $targetDirectory: '%uploads_directory%'
 
+    app.normalizer.object_normalizer:
+        class: Symfony\Component\Serializer\Normalizer\ObjectNormalizer
+        tags: [ 'serializer.normalizer' ]
+        arguments:
+            $propertyInfoExtractor: null
+            $defaultContext:
+                circular_reference_handler: '@App\Serializer\CircularReferenceHandler'
+                ignored_attributes: []
+
+
 

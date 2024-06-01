@@ -52,7 +52,7 @@
                     <button type="button" class="btn-close btn-close-white" id="modal_close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
                 </div>
                 <div class="modal-body">
-                    <div id="product_list">
+                    <div id="product_list" data-csrf_token="{{ csrf_token('product_list') }}">
                         <!--                <div class="card custom-body-card" >-->
                         <!--                  <img src="./img/guitar2.png" class="card-img-top">-->
                         <!--                  <div class="card-body">-->
@@ -247,6 +247,9 @@
 </div>
 <footer></footer>
 {% block javascripts %}
+    <script>
+        window.user = {{ app.user|serialize('json')|raw }};
+    </script>
     <script src="{{ asset('assets/dist/bootstrap/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/site/js/main.js') }}"></script>
 {% endblock %}

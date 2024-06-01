@@ -31,6 +31,8 @@ class ProductController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+	        $product->setCreateAt(new \DateTimeImmutable());
+	        $product->setUpdateAt(new \DateTimeImmutable());
 	        $imageFile = $form->get('image')->getData();
 	        if ($imageFile) {
 		        $imageFileName = $fileUploader->upload($imageFile, $product->getUploadDir());
@@ -64,7 +66,7 @@ class ProductController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
+	        $product->setUpdateAt(new \DateTimeImmutable());
 	        $imageFile = $form->get('image')->getData();
 	        if ($imageFile) {
 		        $imageFileName = $fileUploader->upload($imageFile, $product->getUploadDir());

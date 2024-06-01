@@ -6,6 +6,7 @@ use App\Entity\Category;
 use App\Entity\Product;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -23,7 +24,7 @@ class ProductType extends AbstractType
 	            'divisor' => 100,
             ])
 	        ->add('image', FileType::class, [
-		        'label' => 'image',
+		        'label' => 'Изображение',
 
 		        // unmapped means that this field is not associated to any entity property
 		        'mapped' => false,
@@ -49,6 +50,9 @@ class ProductType extends AbstractType
 				'class' => Category::class,
 		        'choice_label' => 'name',
 		        'empty_data' => '',
+	        ])
+	        ->add('promo', CheckboxType::class, [
+				'label' => "Акция"
 	        ])
         ;
     }

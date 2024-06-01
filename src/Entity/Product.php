@@ -27,14 +27,22 @@ class Product implements IHavingImage
     private ?string $image = null;
 
 	#[ORM\ManyToOne(targetEntity: Category::class, inversedBy: 'products')]
-	#[ORM\JoinColumn(name: 'category_id', referencedColumnName: 'id')]
-	private Category|null $category = null;
+    #[ORM\JoinColumn(name: 'category_id', referencedColumnName: 'id')]
+    private Category|null $category = null;
 
+    #[ORM\Column]
+    private ?\DateTimeImmutable $createAt = null;
+
+    #[ORM\Column]
+    private ?\DateTimeImmutable $updateAt = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?bool $promo = null;
 
 	public function getId(): ?int
-    {
-        return $this->id;
-    }
+                               {
+                                   return $this->id;
+                               }
 
     public function getName(): ?string
     {
@@ -85,18 +93,56 @@ class Product implements IHavingImage
     }
 
 	public function getCategory(): ?Category
-	{
-		return $this->category;
-	}
+                           	{
+                           		return $this->category;
+                           	}
 
 	public function setCategory(?Category $category): static
-	{
-		$this->category = $category;
-
-		return $this;
-	}
+                           	{
+                           		$this->category = $category;
+                           
+                           		return $this;
+                           	}
 
 	function getUploadDir(): string {
-		return "products";
-	}
+                           		return "products";
+                           	}
+
+    public function getCreateAt(): ?\DateTimeImmutable
+    {
+        return $this->createAt;
+    }
+
+    public function setCreateAt(\DateTimeImmutable $createAt): static
+    {
+        $this->createAt = $createAt;
+
+        return $this;
+    }
+
+    public function getUpdateAt(): ?\DateTimeImmutable
+    {
+        return $this->updateAt;
+    }
+
+    public function setUpdateAt(\DateTimeImmutable $updateAt): static
+    {
+        $this->updateAt = $updateAt;
+
+        return $this;
+    }
+
+    public function isPromo(): ?bool
+    {
+        return $this->promo;
+    }
+
+    public function setPromo(?bool $promo): static
+    {
+        $this->promo = $promo;
+
+        return $this;
+    }
+
+
 }
