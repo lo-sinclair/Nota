@@ -52,7 +52,8 @@ class ProductType extends AbstractType
 		        'empty_data' => '',
 	        ])
 	        ->add('promo', CheckboxType::class, [
-				'label' => "Акция"
+				'label' => "Акция",
+				'required' => false,
 	        ])
         ;
     }

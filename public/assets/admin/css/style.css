@@ -1,6 +1,9 @@
 .product-image img {
     width: 100px;
 }
+.order-cart .product-image img {
+    width: 60px;
+}
 .table {
     background-color: #fff;
 }

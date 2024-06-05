@@ -16,6 +16,10 @@ class OrderRepository extends ServiceEntityRepository
         parent::__construct($registry, Order::class);
     }
 
+	public function sumOfOrder() {
+
+	}
+
     //    /**
     //     * @return Order[] Returns an array of Order objects
     //     */

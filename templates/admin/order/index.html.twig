@@ -1,0 +1,36 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Order index{% endblock %}
+
+{% block body %}
+    <h1>Order index</h1>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Email</th>
+            <th>Дата оформления</th>
+            <th>Статус</th>
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for order in orders %}
+            <tr>
+                <td>{{ order.id|format_number({min_integer_digit: 6, grouping_used: false}) }}</td>
+                <td>{{ order.user.email }}</td>
+                <td>{{ order.createAt|date("d.m.Y") }}</td>
+                <td>{{ order.status.name }}</td>
+                <td>
+                    <a href="{{ path('app_order_edit', {'id': order.id}) }}">show/edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

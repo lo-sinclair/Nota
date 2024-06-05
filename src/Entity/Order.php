@@ -18,7 +18,6 @@ class Order
 	const STATUS_SEND = "SEND";
 	const STATUS_COMPLITED = "COMPLITED";
 	const STATUS_CANCELED = "CANCELED";
-	private $statusArray = [];
 
 
     #[ORM\Id]
@@ -32,8 +31,8 @@ class Order
     #[ORM\Column]
     private ?\DateTimeImmutable $updateAt = null;
 
-    #[ORM\Column( type: 'string', length: 32)]
-    private ?string $status = null;
+    #[ORM\Column( type: 'string', length: 32, enumType: Status::class )]
+    private ?Status $status = null;
 
     #[ORM\ManyToOne(inversedBy: 'orders')]
     private ?User $user = null;
@@ -47,9 +46,7 @@ class Order
     public function __construct()
     {
         $this->products = new ArrayCollection();
-		$this->status = Status::CART->name;
-		$this->statusArray = [self::STATUS_CART, self::STATUS_CONFIRMED, self::STATUS_SEND,
-			self::STATUS_INWORK, self::STATUS_COMPLITED, self::STATUS_CANCELED];
+		$this->status = Status::CONFIRMED;
     }
 
     public function getId(): ?int
@@ -81,16 +78,16 @@ class Order
         return $this;
     }
 
-    public function getStatus(): ?string
+    public function getStatus(): ?Status
     {
         return $this->status;
     }
 
-    public function setStatus(string $status): static
+    public function setStatus(Status $status): static
     {
-	    if (!in_array($status, $this->statusArray)) {
+	    /*if (!in_array($status, $this->statusArray)) {
 		    throw new \InvalidArgumentException("Invalid status");
-	    }
+	    }*/
         $this->status = $status;
 
         return $this;

@@ -3,15 +3,13 @@
 namespace App\Controller\Rest;
 
 use App\Entity\Order;
+use App\Entity\Status;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Exception\ORMException;
-use http\Exception\InvalidArgumentException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
-use Symfony\Component\Serializer\Serializer;
 
 class OrderController extends AbstractController {
 
@@ -39,7 +37,6 @@ class OrderController extends AbstractController {
 			$order->setUpdateAt(new \DateTimeImmutable());
 			$order->setUser($this->getUser());
 			$order->setProducts($products);
-			$order->setStatus(Order::STATUS_CONFIRMED);
 			$em->persist($order);
 			$em->flush();
 

@@ -1,0 +1,46 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block body %}
+    <h1>Заказ № {{ order.id|format_number({min_integer_digit: 6, grouping_used: false}) }}</h1>
+    <div><strong>Имя: </strong>{{ order.user.name }}</div>
+    <div><strong>Email: </strong>{{ order.user.email }}</div>
+
+    <div class ="order-cart mt-3">
+        <h5>Товары в заказе</h5>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Image</th>
+                <th>Price</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for product in order.products %}
+                <tr>
+                    <td><a href="{{ path('app_product_edit', {'id': product.id}) }}">{{product.name}}</a></td>
+                    <td><div class="product-image"><img src="{{ asset('uploads/products/' ~ product.image) }}" /></div> </td>
+                    <td>{{ (product.price/100) | number_format(2, '.', ' ') }} руб.</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="6">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div><strong>Статус: </strong>{{ order.status | trans }}</div>
+    {{ include('admin/order/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_order_index') }}">back to list</a>
+
+    {{ include('admin/order/_delete_form.html.twig') }}
+{% endblock %}
+
+
+
