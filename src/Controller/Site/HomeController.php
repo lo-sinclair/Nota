@@ -15,11 +15,9 @@ class HomeController extends AbstractController
     #[Route('/', name: 'app_home')]
     public function index(ProductRepository $productRepository, CategoryRepository $categoryRepository): Response
     {
-		//return $this->redirectToRoute('app_product_index');
-
-	    $status = Status::CART;
 	    return $this->render( 'site/home/home.html.twig', [
 			'products_new' => $productRepository->findNewest(),
+			'products_promo' => $productRepository->findPromo(),
 		    'categories' => $categoryRepository->findTop(),
 	    ] );
     }

@@ -25,7 +25,17 @@ class ProductRepository extends ServiceEntityRepository
 		return $this
 			->createQueryBuilder('p')
 			->setMaxResults(4)
-			->orderBy('p.id', 'DESC')
+			->orderBy('p.createAt', 'DESC')
+			->getQuery()
+			->getResult();
+	}
+
+	public function findPromo(): array {
+		return $this
+			->createQueryBuilder('p')
+			->where('p.promo = 1')
+			->setMaxResults(4)
+			->orderBy('p.updateAt', 'DESC')
 			->getQuery()
 			->getResult();
 	}
@@ -44,7 +54,7 @@ class ProductRepository extends ServiceEntityRepository
     //    /**
     //     * @return Product[] Returns an array of Product objects
     //     */
-    //    public function findByExampleField($value): array
+    //    public_html function findByExampleField($value): array
     //    {
     //        return $this->createQueryBuilder('p')
     //            ->andWhere('p.exampleField = :val')
@@ -56,7 +66,7 @@ class ProductRepository extends ServiceEntityRepository
     //        ;
     //    }
 
-    //    public function findOneBySomeField($value): ?Product
+    //    public_html function findOneBySomeField($value): ?Product
     //    {
     //        return $this->createQueryBuilder('p')
     //            ->andWhere('p.exampleField = :val')

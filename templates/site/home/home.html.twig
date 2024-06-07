@@ -29,38 +29,16 @@
     <!--Ассортимент акций -->
     <div><h2>Акции</h2></div>
     <div class="row gx-3">
-        <div class="col">
-            <div class="p-3 custom-card">
-                <img class="card-img" src="{{ asset('assets/site/img/tovar1.png') }}" />
-                <h6>Название длинной в две строки в две строки</h6>
-                <h4>500 руб.</h4>
-                <button class="card_add">В корзину</button>
+        {% for product in products_promo %}
+            <div class="col">
+                <div class="p-3 custom_card product" data-pid="{{ product.id }}">
+                    <img class="card-img" src="{{ asset('uploads/products/' ~ product.image) }}" />
+                    <h6 class="card_title">{{ product.name }}</h6>
+                    <h4 class="card_price">{{ (product.price/100) | number_format(2, '.', ' ') }} руб.</h4>
+                    <button class="card_add">В корзину</button>
+                </div>
             </div>
-        </div>
-        <div class="col">
-            <div class="p-3 custom-card">
-                <img class="card-img" src="{{ asset('assets/site/img/tovar1.png') }}" />
-                <h6>Название длинной в две строки в две строки</h6>
-                <h4>500 руб.</h4>
-                <button class="card_add">В корзину</button>
-            </div>
-        </div>
-        <div class="col">
-            <div class="p-3 custom-card">
-                <img class="card-img" src="{{ asset('assets/site/img/tovar1.png') }}" />
-                <h6>ННазвание длинной в две строки в две строки</h6>
-                <h4>500 руб.</h4>
-                <button class="card_add">В корзину</button>
-            </div>
-        </div>
-        <div class="col">
-            <div class="p-3 custom-card">
-                <img class="card-img" src="{{ asset('assets/site/img/tovar1.png') }}" />
-                <h6>Название длинной в две строки в две строки</h6>
-                <h4>500 руб.</h4>
-                <button class="card_add">В корзину</button>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 
     <!--Каталог -->

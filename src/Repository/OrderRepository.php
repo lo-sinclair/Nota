@@ -32,7 +32,7 @@ class OrderRepository extends ServiceEntityRepository
     //    /**
     //     * @return Order[] Returns an array of Order objects
     //     */
-    //    public function findByExampleField($value): array
+    //    public_html function findByExampleField($value): array
     //    {
     //        return $this->createQueryBuilder('o')
     //            ->andWhere('o.exampleField = :val')
@@ -44,7 +44,7 @@ class OrderRepository extends ServiceEntityRepository
     //        ;
     //    }
 
-    //    public function findOneBySomeField($value): ?Order
+    //    public_html function findOneBySomeField($value): ?Order
     //    {
     //        return $this->createQueryBuilder('o')
     //            ->andWhere('o.exampleField = :val')

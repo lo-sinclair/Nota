@@ -13,6 +13,7 @@
                 <th>Description</th>
                 <th>Price</th>
                 <th>Image</th>
+                <th>Promo</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -24,6 +25,7 @@
                 <td>{{ product.description }}</td>
                 <td>{{ (product.price / 100) | number_format(2, '.', ' ') }} ₽</td>
                 <td><div class="product-image"><img src="{{ asset('uploads/products/' ~ product.image) }}" /></div> </td>
+                <td>{{ (product.promo) ? 'Да' : 'Нет' }}</td>
                 <td>
                     <a href="{{ path('app_product_show', {'id': product.id}) }}">show</a>
                     <a href="{{ path('app_product_edit', {'id': product.id}) }}">edit</a>

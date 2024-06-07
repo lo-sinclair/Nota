@@ -94,7 +94,8 @@
         "symfony": {
             "allow-contrib": false,
             "require": "6.4.*"
-        }
+        },
+        "public-dir": "public_html"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5",
