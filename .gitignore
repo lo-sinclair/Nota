@@ -26,3 +26,5 @@
 
 /.idea
 /public_html/uploads
+/public_html/.htaccess
+/bin/
