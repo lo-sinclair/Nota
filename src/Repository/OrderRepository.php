@@ -16,8 +16,17 @@ class OrderRepository extends ServiceEntityRepository
         parent::__construct($registry, Order::class);
     }
 
-	public function sumOfOrder() {
+	public function sumOfOrder($orderId): int {
+		$dql = "SELECT SUM(p.price) 
+			FROM App\Entity\Order o
+			JOIN o.products p
+			WHERE o.id = :id
+			GROUP BY o.id 
+			";
 
+		$query = $this->getEntityManager()->createQuery($dql);
+		$query->setParameter('id', $orderId);
+		return $query->getSingleResult()[1];
 	}
 
     //    /**

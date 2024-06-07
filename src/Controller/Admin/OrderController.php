@@ -24,7 +24,8 @@ class OrderController extends AbstractController {
 	}
 
 	#[Route('/{id}/edit', name: 'app_order_edit', methods: ['GET', 'POST'])]
-	public function edit(Request $request, Order $order, EntityManagerInterface $entityManager, FileUploader $fileUploader): Response
+	public function edit(Request $request, Order $order, EntityManagerInterface $entityManager,
+		OrderRepository $orderRepository, FileUploader $fileUploader): Response
 	{
 		$form = $this->createForm(OrderType::class, $order);
 		$form->handleRequest($request);
@@ -37,8 +38,10 @@ class OrderController extends AbstractController {
 			return $this->redirectToRoute('app_order_index', [], Response::HTTP_SEE_OTHER);
 		}
 
+
 		return $this->render('admin/order/edit.html.twig', [
 			'order' => $order,
+			'order_sum' => $orderRepository->sumOfOrder( $order->getId() ),
 			'form' => $form,
 		]);
 	}

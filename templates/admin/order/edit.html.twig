@@ -28,9 +28,13 @@
                 </tr>
             {% else %}
                 <tr>
-                    <td colspan="6">no records found</td>
+                    <td colspan="3">no records found</td>
                 </tr>
             {% endfor %}
+            <tr>
+                <td colspan="2"> </td>
+                <td><strong>Итого:</strong> {{ (order_sum/100) | number_format(2, '.', ' ') }} руб.</td>
+            </tr>
             </tbody>
         </table>
     </div>

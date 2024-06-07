@@ -22,7 +22,7 @@
                 <td>{{ product.id }}</td>
                 <td>{{ product.name }}</td>
                 <td>{{ product.description }}</td>
-                <td>{{ product.price / 100 | number_format(2, '.', ' ') }}</td>
+                <td>{{ (product.price / 100) | number_format(2, '.', ' ') }} ₽</td>
                 <td><div class="product-image"><img src="{{ asset('uploads/products/' ~ product.image) }}" /></div> </td>
                 <td>
                     <a href="{{ path('app_product_show', {'id': product.id}) }}">show</a>
