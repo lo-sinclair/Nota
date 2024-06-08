@@ -17,7 +17,6 @@
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <a class="navbar-brand px-2" title="На сайт" target="_blank" href="{{ url('app_home') }}">(^◕ᴥ◕^)</a>
                 {% set current_path = app.request.get('_route') %}
-                {{ current_path }}
                 <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item{{ (current_path=='app_product_index') ? ' active' : '' }}">
