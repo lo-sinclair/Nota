@@ -10,6 +10,9 @@
                 <img class="rounded-circle mt-5 custom-img" src="{{ asset('assets/site/img/Frame.png')}}">
                 <h4>{{ user.name }}</h4>
                 <h6 class="text-white-50">{{ user.email }}</h6>
+
+                <!-- Кнопка "Выйти"-->
+                <button class="btn exit"><a href="{{ path('_logout_main') }}">Выйти</a></button>
             </div>
         </div>
         <div class="col-md-5 border-right">

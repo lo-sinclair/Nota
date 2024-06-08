@@ -59,3 +59,22 @@
    text-decoration: underline;
    font-size: 20px;
  }
+
+ .exit {
+  margin-top: 150px;
+  color: white;
+  background-color: #712fff;
+  border: 3px solid #712fff;
+  color: white;
+  border-radius: 8px;
+  font-size: 16px;
+  padding: 12px 34px;
+ }
+
+
+.exit:hover {
+  border: 3px solid #ffffff;
+  border-style: dashed;
+  background-color: transparent;
+  color: #fff;
+}

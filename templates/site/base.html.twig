@@ -9,6 +9,8 @@
         {#<link href="{{ asset('assets/dist/bootstrap/bootstrap.min.css') }}" rel="stylesheet" />#}
         <link href="{{ asset('assets/site/css/bootstrap.min.css') }}" rel="stylesheet" />
         <link rel="stylesheet" href="{{ asset('assets/site/css/style1.css') }}" />
+        <link rel="stylesheet" href="{{ asset('assets/site/css/style_card.css') }}" />
+        <link rel="stylesheet" href="{{ asset('assets/site/css/profile.css') }}" />
         <link rel="stylesheet" href="{{ asset('assets/site/css/style_add.css') }}" />
     {% endblock %}
 
@@ -29,6 +31,7 @@
             <div class="menu3">
                 <div>
                         <a href="{% if app.user %}{{ url('app_profile_show') }}{% else %}{{ url('app_login') }}{% endif %}" class="person">
+                            {% if not app.user %}<img class="no-autorize-icon" src="{{ asset('assets/site/img/door-open.svg')}}">{% endif %}
                             <img src="{{ asset('assets/site/img/person-fill.svg')}}"/>
                         </a>
                 </div>
