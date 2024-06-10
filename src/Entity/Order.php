@@ -2,7 +2,6 @@
 
 namespace App\Entity;
 
-use App\DTO\OrderDTO;
 use App\Repository\OrderRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -12,14 +11,6 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Table(name: '`order`')]
 class Order
 {
-	const STATUS_CART = "CART";
-	const STATUS_CONFIRMED = "CONFIRMED";
-	const STATUS_INWORK = "INWORK";
-	const STATUS_SEND = "SEND";
-	const STATUS_COMPLITED = "COMPLITED";
-	const STATUS_CANCELED = "CANCELED";
-
-
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -40,8 +31,11 @@ class Order
     /**
      * @var Collection<int, Product>
      */
-    #[ORM\ManyToMany(targetEntity: Product::class)]
+    #[ORM\ManyToMany(targetEntity: Product::class, fetch: 'EAGER')]
     private Collection $products;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $total = null;
 
     public function __construct()
     {
@@ -85,9 +79,6 @@ class Order
 
     public function setStatus(Status $status): static
     {
-	    /*if (!in_array($status, $this->statusArray)) {
-		    throw new \InvalidArgumentException("Invalid status");
-	    }*/
         $this->status = $status;
 
         return $this;
@@ -130,11 +121,22 @@ class Order
     }
 
 	public function setProducts(array $products) :static
-	{
-		$this->products = new ArrayCollection($products);
+         	{
+         		$this->products = new ArrayCollection($products);
+         
+         		return $this;
+         	}
 
-		return $this;
-	}
+    public function getTotal(): ?int
+    {
+        return $this->total;
+    }
 
+    public function setTotal(?int $total): static
+    {
+        $this->total = $total;
+
+        return $this;
+    }
 
 }

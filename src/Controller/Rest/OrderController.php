@@ -4,6 +4,7 @@ namespace App\Controller\Rest;
 
 use App\Entity\Order;
 use App\Entity\Status;
+use App\Repository\OrderRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Exception\ORMException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -17,7 +18,7 @@ class OrderController extends AbstractController {
 	 * @throws ORMException
 	 */
 	#[Route('/api/order/new', name: 'api_order_new', methods: ['POST', 'GET'], format: 'json')]
-	public function new(Request $request, EntityManagerInterface $em) :Response {
+	public function new(Request $request, EntityManagerInterface $em, OrderRepository $orderRepository ) :Response {
 
 		$requestData = json_decode( $request->getContent());
 		$csrfToken = $requestData->csrfToken;
@@ -37,6 +38,7 @@ class OrderController extends AbstractController {
 			$order->setUpdateAt(new \DateTimeImmutable());
 			$order->setUser($this->getUser());
 			$order->setProducts($products);
+			$order->setTotal( $orderRepository->sumOfOrder( $order->getId() ));
 			$em->persist($order);
 			$em->flush();
 

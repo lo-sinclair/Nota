@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Order;
+use App\Entity\Status;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -27,6 +28,40 @@ class OrderRepository extends ServiceEntityRepository
 		$query = $this->getEntityManager()->createQuery($dql);
 		$query->setParameter('id', $orderId);
 		return $query->getSingleResult()[1];
+	}
+
+	public function findUsersCompleteOrders($user): array {
+		$query =$this->createQueryBuilder('o')
+			->select('o, SUM(p.price) AS sum')
+			->where('o.user = :user')
+			->join('o.products', 'p')
+			->andWhere('o.status = :status')
+			->setParameter('user', $user)
+			->setParameter('status', Status::COMPLETED)
+			->orderBy('o.updateAt')
+			->groupBy('o.id')
+			->setMaxResults(6)
+			->getQuery()
+			->getResult()
+		;
+		return $query;
+	}
+
+	public function findUsersActiveOrders($user): array {
+		return$this->createQueryBuilder('o')
+		           ->select('o, SUM(p.price) AS sum')
+		           ->where('o.user = :user')
+		           ->join('o.products', 'p')
+		           ->andWhere('o.status NOT IN (:status1, :status2)')
+		           ->setParameter('user', $user)
+		           ->setParameter('status1', Status::COMPLETED)
+		           ->setParameter('status2', Status::CANCELED)
+		           ->orderBy('o.updateAt')
+		           ->groupBy('o.id')
+		           ->setMaxResults(6)
+		           ->getQuery()
+		           ->getResult()
+			;
 	}
 
     //    /**
