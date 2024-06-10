@@ -38,7 +38,7 @@ class OrderController extends AbstractController {
 			$order->setUpdateAt(new \DateTimeImmutable());
 			$order->setUser($this->getUser());
 			$order->setProducts($products);
-			$order->setTotal( $orderRepository->sumOfOrder( $order->getId() ));
+			//$order->setTotal( $orderRepository->sumOfOrder( $order->getId() ));
 			$em->persist($order);
 			$em->flush();
 
