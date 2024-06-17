@@ -1,10 +1,10 @@
 .custom-style-card {
-   font-family: "NeueMachina";
-   background: #181525;
-   border-radius: 12px;
-   margin-bottom: 20px;
- }
+    font-family: "NeueMachina";
+    background: #181525;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
 
- .card-img {
-   border-radius: 12px;
- }
+.card-img {
+    border-radius: 12px;
+}
