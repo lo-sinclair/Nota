@@ -30,6 +30,9 @@ class ProductRepository extends ServiceEntityRepository
 			->getResult();
 	}
 
+	/**
+	 * @return array<Product>
+	 */
 	public function findPromo(): array {
 		return $this
 			->createQueryBuilder('p')
@@ -40,6 +43,9 @@ class ProductRepository extends ServiceEntityRepository
 			->getResult();
 	}
 
+	/**
+	 * @return array<Product>
+	 */
 	public function findByCategory(Category $category): array {
 		return $this
 			->createQueryBuilder('p')
@@ -50,29 +56,4 @@ class ProductRepository extends ServiceEntityRepository
 			->getResult();
 	}
 
-
-    //    /**
-    //     * @return Product[] Returns an array of Product objects
-    //     */
-    //    public_html function findByExampleField($value): array
-    //    {
-    //        return $this->createQueryBuilder('p')
-    //            ->andWhere('p.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->orderBy('p.id', 'ASC')
-    //            ->setMaxResults(10)
-    //            ->getQuery()
-    //            ->getResult()
-    //        ;
-    //    }
-
-    //    public_html function findOneBySomeField($value): ?Product
-    //    {
-    //        return $this->createQueryBuilder('p')
-    //            ->andWhere('p.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->getQuery()
-    //            ->getOneOrNullResult()
-    //        ;
-    //    }
 }
